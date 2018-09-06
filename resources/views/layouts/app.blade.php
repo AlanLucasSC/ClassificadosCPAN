@@ -72,6 +72,15 @@
             text-transform: uppercase;
         }
 
+        a.link{
+            color: #eceff1;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
         .m-b-md {
             margin-bottom: 30px;
         }
@@ -112,10 +121,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Início</a>
                         <a href="{{ getenv('APP_URL') }}/logout">Sair</a>
                     @else
-                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/') }}">Início</a>
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
@@ -125,8 +134,12 @@
                 @auth
                     <main class="py-4 container-fluid row mt-5">
                         <div class="col-2 mt-5 border-right" id="side-menu">
-                            <div class="card-header border-bottom">Classificados</div>
-                            <div class="card-header border-bottom">Negócios</div>
+                            <div class="card-header border-bottom ">
+                                <a class="link" href="{{ url('/classificados') }}">Classificados</a>
+                            </div>
+                            <div class="card-header border-bottom ">
+                                <a class="link" href="{{ url('/negocios') }}">Negócios</a>
+                            </div>
                         </div>
                         <div class="col-10 mt-5" id="content"> @yield('content') </div>
                     </main>

@@ -6,15 +6,40 @@
             <div class="card">
                 <div class="card-header">Classificados</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong> Cake Guy </strong>
+                        <div>
+                            <span class="badge badge-secondary badge-pill">Eu vendo os bolos na faculdade, a maioria das vezes estou na arquibancada</span>
                         </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+                        <div class="text-right">
+                            <span class="badge badge-success badge-pill">Preço: R$4,00</span>
+                            <span class="badge badge-primary badge-pill">14:00 - 20:00</span>
+                            <span class="badge badge-primary badge-pill">08:00 - 12:00</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong> Batatinha do BOM </strong>
+                        <div>
+                            <span class="badge badge-secondary badge-pill">Sou uma loja de venda de batatas, fico na rua ..., de acordo com os acadêmicos a minha comida é boa</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="badge badge-success badge-pill">Preço: R$20,00</span>
+                            <span class="badge badge-primary badge-pill">10:00 - 13:00</span>
+                            <span class="badge badge-primary badge-pill">20:00 - 22:00</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <strong> Docinhos </strong>
+                        <div>
+                            <span class="badge badge-secondary badge-pill">Eu vendo os docinhos na frente do Unidade 1</span>
+                        </div>
+                        <div class="text-right" id="desc">
+                            <span class="badge badge-success badge-pill">Preço: R$1,00</span>
+                            <span class="badge badge-primary badge-pill">18:00 - 22:00</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
