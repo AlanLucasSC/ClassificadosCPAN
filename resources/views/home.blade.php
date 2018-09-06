@@ -16,6 +16,13 @@
                             <span class="badge badge-success badge-pill">Preço: R$4,00</span>
                             <span class="badge badge-primary badge-pill">14:00 - 20:00</span>
                             <span class="badge badge-primary badge-pill">08:00 - 12:00</span>
+                            <span class="badge badge-muted badge-pill">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </span>
                         </div>
                     </li>
                     <li class="list-group-item">
@@ -27,6 +34,13 @@
                             <span class="badge badge-success badge-pill">Preço: R$20,00</span>
                             <span class="badge badge-primary badge-pill">10:00 - 13:00</span>
                             <span class="badge badge-primary badge-pill">20:00 - 22:00</span>
+                            <span class="badge badge-muted badge-pill">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </span>
                         </div>
                     </li>
                     <li class="list-group-item">
@@ -37,6 +51,13 @@
                         <div class="text-right" id="desc">
                             <span class="badge badge-success badge-pill">Preço: R$1,00</span>
                             <span class="badge badge-primary badge-pill">18:00 - 22:00</span>
+                            <span class="badge badge-muted badge-pill">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </span>
                         </div>
                     </li>
                 </ul>

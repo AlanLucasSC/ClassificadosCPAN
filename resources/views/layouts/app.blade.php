@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -108,6 +109,14 @@
             background-color: #39332a;
             color: white;
         }
+
+        .checked {
+            color: orange;
+        }
+
+        .bg-app{
+            background-color: #39332a;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +130,6 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Início</a>
                         <a href="{{ getenv('APP_URL') }}/logout">Sair</a>
                     @else
                         <a href="{{ url('/') }}">Início</a>
@@ -135,7 +143,7 @@
                     <main class="py-4 container-fluid row mt-5">
                         <div class="col-2 mt-5 border-right" id="side-menu">
                             <div class="card-header border-bottom ">
-                                <a class="link" href="{{ url('/classificados') }}">Classificados</a>
+                                <a class="link" href="{{ url('/home') }}">Classificados</a>
                             </div>
                             <div class="card-header border-bottom ">
                                 <a class="link" href="{{ url('/negocios') }}">Negócios</a>
