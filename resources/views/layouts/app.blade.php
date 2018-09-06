@@ -125,6 +125,8 @@
                 @auth
                     <main class="py-4 container-fluid row mt-5">
                         <div class="col-2 mt-5 border-right" id="side-menu">
+                            <div class="card-header border-bottom">Classificados</div>
+                            <div class="card-header border-bottom">Negócios</div>
                         </div>
                         <div class="col-10 mt-5" id="content"> @yield('content') </div>
                     </main>
