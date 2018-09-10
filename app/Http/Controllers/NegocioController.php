@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Expediente;
+use App\Negocio;
 
 class NegocioController extends Controller
 {
@@ -13,7 +15,7 @@ class NegocioController extends Controller
      */
     public function index()
     {
-        return view('negocio/index');
+        return view('negocio.index');
     }
 
     /**
@@ -34,7 +36,35 @@ class NegocioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $negocio = new Negocio;
+        if(!$request->negocio){
+            return redirect()->back()->with('error', ['Coloque algum nome para seu negocio!']);
+        }
+        if(!$request->preco){
+            return redirect()->back()->with('error', 'Coloque algum preço para seu negocio!');
+        }
+        if(!$request->desc){
+            return redirect()->back()->with('error', 'Colocar um descrição ajuda seu cliente, coloque uma descrição!');
+        }
+        $negocio->nome = $request->negocio;
+        $negocio->preco = $request->preco;
+        $negocio->descricao = $request->desc;
+        $negocio->save();
+
+        if(!$request->inicio){
+            return redirect()->back()->with('error', 'Coloque algum horario para criar ser negocio!');
+        }
+
+        for($i = 0; $i < count($request->inicio); $i++){
+            $expediente = new Expediente;
+            $expediente->inicio = $request->inicio[$i];
+            $expediente->fim = $request->fim[$i];
+
+            $expediente->negocio()->associate($negocio);
+            $expediente->save();
+        }
+
+        return redirect()->back()->with('message', 'Sucesso!');
     }
 
     /**
