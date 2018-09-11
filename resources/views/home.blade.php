@@ -7,7 +7,39 @@
                 <div class="card-header">Classificados</div>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
+                    @foreach ($negocios as $negocio) 
+                        <li class="list-group-item">
+                            <strong> {{$negocio->name}} </strong>
+                            <div>
+                                <span class="badge badge-secondary badge-pill">{{$negocio->descricao}}</span>
+                            </div>
+                            <div class="text-right">
+                                
+                                <span class="badge badge-success badge-pill">Preço: {{$negocio->preco}}</span>
+                                @foreach($negocio->expediente as $expediente)
+                                {{ date('h i', mktime($expediente->inicio)) }}
+                                    <span class="badge badge-primary badge-pill">{{$expediente->inicio}} - {{$expediente->fim}}</span>
+                                @endforeach
+                                
+                                <span class="badge badge-muted badge-pill">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </span>
+                            </div>
+                        </li>
+
+                    @endforeach
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+@endsection
+
+<!--<li class="list-group-item">
                         <strong> Cake Guy </strong>
                         <div>
                             <span class="badge badge-secondary badge-pill">Eu vendo os bolos na faculdade, a maioria das vezes estou na arquibancada</span>
@@ -59,9 +91,4 @@
                                 <span class="fa fa-star"></span>
                             </span>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-@endsection
+                    </li> -->
