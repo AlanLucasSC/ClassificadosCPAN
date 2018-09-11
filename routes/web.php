@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/negocios','NegocioController');
+Route::resource('/pedidos','PedidoController');
+Route::resource('/listaPedidos','ListaPedidosController');
 Route::get('logout', 'Auth\LoginController@logout');
