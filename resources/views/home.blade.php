@@ -17,8 +17,8 @@
                                 
                                 <span class="badge badge-success badge-pill">Preço: {{$negocio->preco}}</span>
                                 @foreach($negocio->expediente as $expediente)
-                                {{ date('h i', mktime($expediente->inicio)) }}
-                                    <span class="badge badge-primary badge-pill">{{$expediente->inicio}} - {{$expediente->fim}}</span>
+                                
+                                    <span class="badge badge-primary badge-pill">{{ date('h:i a', strtotime($expediente->inicio)) }} - {{ date('h:i a', strtotime($expediente->fim)) }}</span>
                                 @endforeach
                                 
                                 <span class="badge badge-muted badge-pill">
