@@ -9,7 +9,7 @@
                 <ul class="list-group list-group-flush">
                     @foreach ($negocios as $negocio) 
                         <li class="list-group-item">
-                            <strong> {{$negocio->name}} </strong>
+                            <strong> {{$negocio->nome}} </strong>
                             <div>
                                 <span class="badge badge-secondary badge-pill">{{$negocio->descricao}}</span>
                             </div>
