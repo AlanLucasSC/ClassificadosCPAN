@@ -15,7 +15,7 @@
                             </div>
                             <div class="text-right">
                                 
-                                <span class="badge badge-success badge-pill">Data: {{$pedido->data}}</span>
+                                <span class="badge badge-success badge-pill">Para: {{$pedido->data}}</span>
                             
                                 
                                 <span class="badge badge-muted badge-pill">

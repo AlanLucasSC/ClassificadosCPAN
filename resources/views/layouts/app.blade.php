@@ -149,7 +149,7 @@
                                 <a class="link" href="{{ url('/negocios') }}">Negócios</a>
                             </div>
                             <div class="card-header border-bottom ">
-                                <a class="link" href="{{ url('/pedidos') }}">Fazer Pedido</a>
+                                <a class="link" href="{{ url('/pedidos') }}">Criar Pedido</a>
                             </div>
                             <div class="card-header border-bottom ">
                                 <a class="link" href="{{ url('/listaPedidos') }}">Pedidos</a>

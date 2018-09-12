@@ -55,14 +55,14 @@
                         <li class="list-group-item">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Coloque a data do seu pedido</span>
+                                    <span class="input-group-text" id="basic-addon1">Para quando quer seu pedido?</span>
                                 </div>
                                 <input type="date" min="-1" step="0.01" class="form-control" placeholder="" name="data">
                             </div>
                             <div class="text-right">
                                 <span class="badge badge-secondary badge-pill">Coloque aqui a data em que precisa do serviço ou produto pedido. </span>
                                 <span class="badge badge-secondary badge-pill">Se for colocar por proximidade, coloque a data mínima. </span>
-                                <span class="badge badge-secondary badge-pill">Se o produto for de graça, coloque -1 (Ajude o Coleginha)</span>
+                                <span class="badge badge-secondary badge-pill">Não coloque data anterior a atual.</span>
                             </div>
                             <div class="text-right">
                                 <span class="badge badge-danger badge-pill">Não coloque prazos absurdos</span>
@@ -76,7 +76,7 @@
                                 <textarea class="form-control" aria-label="With textarea" name="desc"></textarea>
                             </div>
                             <div class="text-right">
-                                <span class="badge badge-secondary badge-pill">Coloque aqui a descrição e as características do seu pedido.</span>
+                                <span class="badge badge-secondary badge-pill">Coloque aqui a descrição e as características do seu pedido, com o que quer ou precisa.</span>
                                 <span class="badge badge-secondary badge-pill">Pode também colocar o seu celular e email (CUIDADO COM ISSO)</span>
                             </div>
                             <div class="text-right">

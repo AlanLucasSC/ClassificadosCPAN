@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use DB;
 
 
 class ListaPedidosController extends Controller
@@ -25,8 +26,14 @@ class ListaPedidosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $pedidos = Pedido::all();
+    {   
+        
+        $pedidos = Pedido::whereDate('pedidos.data', '>', date('Y-m-d'))//anterior era só essa linha 
+                    //->orderBy(date('Y-m-d'), 'asc')
+                    ->select(DB::raw('pedidos.data, pedidos.nome, pedidos.descricao, DATEDIFF(pedidos.data, CURDATE()) AS Ordem'))  
+                    ->orderBy('ordem')
+                    ->get();
+        
         
 
 
