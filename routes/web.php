@@ -22,4 +22,6 @@ Route::resource('/negocios','NegocioController');
 Route::resource('/pedidos','PedidoController');
 Route::get('meus/pedidos', 'PedidoController@meus');
 Route::resource('/listaPedidos','ListaPedidosController');
+Route::resource('/solicitacoes','SolicitacoesController');
+Route::get('/solicitacao','SolicitacoesController@index');
 Route::get('logout', 'Auth\LoginController@logout');
