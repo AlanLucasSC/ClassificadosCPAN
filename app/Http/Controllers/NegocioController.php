@@ -38,22 +38,28 @@ class NegocioController extends Controller
     {
         $negocio = new Negocio;
         if(!$request->negocio){
-            return redirect()->back()->with('error', ['Coloque algum nome para seu negocio!']);
+            $error[] = 'Coloque algum nome para seu negocio!';
+            //return redirect()->back()->with('error', ['Coloque algum nome para seu negocio!']);
         }
         if(!$request->preco){
-            return redirect()->back()->with('error', 'Coloque algum preço para seu negocio!');
+            $error[] = 'Coloque algum preço para seu negocio!';
+            //return redirect()->back()->with('error', ['Coloque algum preço para seu negocio!']);
         }
         if(!$request->desc){
-            return redirect()->back()->with('error', 'Colocar um descrição ajuda seu cliente, coloque uma descrição!');
+            $error[] = 'Colocar um descrição ajuda seu cliente, coloque uma descrição!';
+            //return redirect()->back()->with('error', ['Colocar um descrição ajuda seu cliente, coloque uma descrição!']);
         }
+        if(!$request->inicio){
+            $error[] = 'Coloque algum horario para criar ser negocio!';
+        }
+        if(isset($error)){
+            return redirect()->back()->with('error', $error);
+        }
+
         $negocio->nome = $request->negocio;
         $negocio->preco = $request->preco;
         $negocio->descricao = $request->desc;
         $negocio->save();
-
-        if(!$request->inicio){
-            return redirect()->back()->with('error', 'Coloque algum horario para criar ser negocio!');
-        }
 
         for($i = 0; $i < count($request->inicio); $i++){
             $expediente = new Expediente;

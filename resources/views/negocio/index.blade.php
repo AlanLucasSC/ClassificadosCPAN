@@ -29,7 +29,7 @@
         for(i in horarios){
             if(id == horarios[i].id){
                 horarios.splice(i, 1);
-                break
+                break;
             }
         }
 
@@ -41,6 +41,10 @@
 
         element = document.getElementById('horarios')
         element.innerHTML = text
+    }
+
+    function excluirElement(id){
+        $('#'+id).remove();
     }
 </script>
 
@@ -62,21 +66,21 @@
                     </button>
                 </h3>
             @endif
-
-            @if( \Session::has('error') )
-                <h3 class="alert alert-danger alert-dismissible fade show" role="alert">
-                    @foreach(session()->get('error') as $ms)
-                        {{ $ms }} <br>
-                    @endforeach
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </h3>
-            @endif
             <form method= "POST" action="{{ route('negocios.store') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="card">
-                    <div class="card-header">Negócios</div>
+                    <div class="card-header">
+                        Negócios
+                        <br>
+                        @if( \Session::has('error') )
+                            @foreach(session()->get('error') as $key => $ms)
+                                <span id="{{ $key }}error" class="badge badge-danger badge-pill">
+                                    {{ $ms }}
+                                    <a id="excluir" onClick="excluirElement('{{ $key }}error')"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                </span>
+                            @endforeach
+                        @endif
+                    </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="input-group mb-3">
