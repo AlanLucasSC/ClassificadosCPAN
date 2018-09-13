@@ -4,8 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Pedidos</div>
-
+                <div class="card-header">Meus Pedidos</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($pedidos as $pedido) 
                         <li class="list-group-item">
@@ -18,9 +17,7 @@
                                 <span class="badge badge-success badge-pill">Para: {{ date('d/m/Y', strtotime($pedido->data)) }}</span>
                             </div>
                         </li>
-
                     @endforeach
-                    
                 </ul>
             </div>
         </div>

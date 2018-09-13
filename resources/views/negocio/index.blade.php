@@ -58,14 +58,6 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
-            @if( \Session::has('message') )
-                <h3 class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('message') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </h3>
-            @endif
             <form method= "POST" action="{{ route('negocios.store') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="card">
@@ -79,6 +71,12 @@
                                     <a id="excluir" onClick="excluirElement('{{ $key }}error')"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </span>
                             @endforeach
+                        @endif
+                        @if( \Session::has('message') )
+                            <span id="success" class="badge badge-success badge-pill">
+                                {{ \Session::get('message') }}
+                                <a id="excluir" onClick="excluirElement('success')"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </span>
                         @endif
                     </div>
                     <ul class="list-group list-group-flush">

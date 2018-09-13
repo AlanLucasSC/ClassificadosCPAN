@@ -15,7 +15,7 @@
                             </div>
                             <div class="text-right">
                                 
-                                <span class="badge badge-success badge-pill">Preço: {{$negocio->preco}}</span>
+                                <span class="badge badge-success badge-pill">Preço: {{ number_format($negocio->preco, 2) }}</span>
                                 @foreach($negocio->expediente as $expediente)
                                 
                                     <span class="badge badge-primary badge-pill">{{ date('h:i a', strtotime($expediente->inicio)) }} - {{ date('h:i a', strtotime($expediente->fim)) }}</span>

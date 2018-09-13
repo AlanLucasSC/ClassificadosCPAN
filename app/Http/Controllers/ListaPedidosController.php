@@ -28,16 +28,11 @@ class ListaPedidosController extends Controller
     public function index()
     {   
         
-        $pedidos = Pedido::whereDate('pedidos.data', '>', date('Y-m-d'))//anterior era só essa linha 
-                    //->orderBy(date('Y-m-d'), 'asc')
-                    ->select(DB::raw('pedidos.data, pedidos.nome, pedidos.descricao, DATEDIFF(pedidos.data, CURDATE()) AS Ordem'))  
-                    ->orderBy('ordem')
-                    ->get();
-        
-        
-
-
-
+        $pedidos = Pedido::whereDate('pedidos.data', '>', date('Y-m-d'))
+            ->select(DB::raw('pedidos.data, pedidos.nome, pedidos.descricao, DATEDIFF(pedidos.data, CURDATE()) AS Ordem'))  
+            ->orderBy('ordem')
+            ->get();
+            
         return view('listapedidos.index', compact('pedidos'));
     }
 }

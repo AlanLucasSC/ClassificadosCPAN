@@ -70,7 +70,7 @@ class NegocioController extends Controller
             $expediente->save();
         }
 
-        return redirect()->back()->with('message', 'Sucesso!');
+        return redirect()->back()->with('message', 'Sucesso ao criar o seu negócio!');
     }
 
     /**

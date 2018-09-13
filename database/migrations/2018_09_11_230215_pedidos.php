@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration
+class Pedidos extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,9 @@ class CreatePedidosTable extends Migration
             $table->text('descricao');	
             $table->date('data');
             $table->timestamps();
+
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -154,6 +154,9 @@
                             <div class="card-header border-bottom ">
                                 <a class="link" href="{{ url('/listaPedidos') }}">Pedidos</a>
                             </div>
+                            <div class="card-header border-bottom ">
+                                <a class="link" href="{{ url('/meus/pedidos') }}">Meus Pedidos</a>
+                            </div>
                         </div>
                         <div class="col-10 mt-5" id="content"> @yield('content') </div>
                     </main>

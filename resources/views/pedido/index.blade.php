@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+<script>
+    function excluirElement(id){
+        $('#'+id).remove();
+    }
+</script>
 
 <style>
     #excluir{
@@ -11,29 +16,27 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
-            @if( \Session::has('message') )
-                <h3 class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('message') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </h3>
-            @endif
-
-            @if( \Session::has('error') )
-                <h3 class="alert alert-danger alert-dismissible fade show" role="alert">
-                    @foreach(session()->get('error') as $ms)
-                        {{ $ms }} <br>
-                    @endforeach
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </h3>
-            @endif
             <form method= "POST" action="{{ route('pedidos.store') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="card">
-                    <div class="card-header">Pedidos</div>
+                    <div class="card-header">
+                        Criar Pedido
+                        <br>
+                        @if( \Session::has('error') )
+                            @foreach(session()->get('error') as $key => $ms)
+                                <span id="{{ $key }}error" class="badge badge-danger badge-pill">
+                                    {{ $ms }}
+                                    <a id="excluir" onClick="excluirElement('{{ $key }}error')"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                </span>
+                            @endforeach
+                        @endif
+                        @if( \Session::has('message') )
+                            <span id="success" class="badge badge-success badge-pill">
+                                {{ \Session::get('message') }}
+                                <a id="excluir" onClick="excluirElement('success')"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </span>
+                        @endif
+                    </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="input-group mb-3">
@@ -90,14 +93,6 @@
                             </div>
                             <div class="text-right">
                                 <span class="badge badge-success badge-pill">Data: 14/09/2018</span>
-                               
-                                <span class="badge badge-muted badge-pill">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </span>
                             </div>
                         </li>
                         <li class="list-group-item">
