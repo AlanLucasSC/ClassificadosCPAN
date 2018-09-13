@@ -24,6 +24,7 @@ class PedidoController extends Controller
         $pedidos = Pedido::where('pedidos.user_id', Auth::id())->get();
         return view('pedido.meus', compact('pedidos'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
