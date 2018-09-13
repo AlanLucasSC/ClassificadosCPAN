@@ -59,6 +59,7 @@ class NegocioController extends Controller
         $negocio->nome = $request->negocio;
         $negocio->preco = $request->preco;
         $negocio->descricao = $request->desc;
+        $negocio->user_id = Auth::id();
         $negocio->save();
 
         for($i = 0; $i < count($request->inicio); $i++){

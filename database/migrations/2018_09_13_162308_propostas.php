@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Negocios extends Migration
+class Propostas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class Negocios extends Migration
      */
     public function up()
     {
-        Schema::create('negocios', function (Blueprint $table) {
+        Schema::create('propostas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 100);
+            $table->string('email', 100);
+            $table->string('status', 20)->default('PENDENTE');
             $table->double('preco', 8, 2);
             $table->text('descricao');
 
             $table->timestamps();
 
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('pedido_id');
+            $table->foreign('pedido_id')->references('id')->on('pedidos');
         });
     }
 
@@ -33,6 +34,6 @@ class Negocios extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('negocios');
+        Schema::dropIfExists('propostas');
     }
 }

@@ -18,6 +18,7 @@ class Pedidos extends Migration
             $table->string('nome', 100);
             $table->text('descricao');	
             $table->date('data');
+            $table->string('status', 20)->default('INICIAL');
             $table->timestamps();
 
             $table->unsignedInteger('user_id');
