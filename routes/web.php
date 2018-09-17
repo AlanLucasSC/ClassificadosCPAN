@@ -17,11 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('/negocios','NegocioController');
 Route::resource('/pedidos','PedidoController');
-Route::get('meus/pedidos', 'PedidoController@meus');
-Route::resource('/listaPedidos','ListaPedidosController');
+Route::resource('/proposta','PropostaController');
 Route::resource('/solicitacoes','SolicitacoesController');
+
+//Pedidos
+Route::get('/pedidos/lista/{pag}','ListaPedidosController@index');
+Route::get('/pedidos/meus/{pag}', 'PedidoController@meus');
+Route::get('/pedidos/{id}/proposta', 'PropostaController@inserir');
+
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/solicitacao','SolicitacoesController@index');
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');

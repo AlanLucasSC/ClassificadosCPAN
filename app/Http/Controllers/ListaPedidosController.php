@@ -25,11 +25,11 @@ class ListaPedidosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($pag)
     {   
         
         $pedidos = Pedido::whereDate('pedidos.data', '>', date('Y-m-d'))
-            ->select(DB::raw('pedidos.data, pedidos.nome, pedidos.descricao, DATEDIFF(pedidos.data, CURDATE()) AS Ordem'))  
+            ->select(DB::raw('pedidos.*, DATEDIFF(pedidos.data, CURDATE()) AS Ordem'))  
             ->orderBy('ordem')
             ->get();
             
