@@ -43,7 +43,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">Quantas unidades quer?</span>
                                 </div>
-                                <input type="number" min="-1" step="0.01" class="form-control" placeholder="" name="quantidade">
+                            <input type="number" min="-1" step="0.01" class="form-control" placeholder="" name="quantidade">
                             </div>
                             <div class="text-right">
                                 <span class="badge badge-secondary badge-pill">Coloque aqui a quantidade do produto soliciado você precisa. </span>
@@ -69,6 +69,7 @@
                                 <span class="badge badge-danger badge-pill">Não coloque textos muito grandes. É bastante cansativo</span>
                             </div>
                         </li>
+                    <input type="number" class="form-control" placeholder="{{$id}}" value="{{$id}}" name="id_negocio">
                        
                         <li class="list-group-item">
                             <button type="submit" id="submit" class="btn btn-outline-success"> Salvar </button>

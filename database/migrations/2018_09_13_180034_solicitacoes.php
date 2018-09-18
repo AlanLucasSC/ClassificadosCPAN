@@ -19,10 +19,15 @@ class Solicitacoes extends Migration
             $table->text('descricao');
             $table->integer('quantidade');
 
-            $table->timestamps();
-
+           
+            
             $table->unsignedInteger('negocios_id');
             $table->foreign('negocios_id')->references('id')->on('negocios');
+
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->timestamps();
          
         });
     }

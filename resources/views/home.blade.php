@@ -28,6 +28,7 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </span>
+                                <a class="" href="/solicitacao/{{$negocio->id}}">teste</span>
                             </div>
                         </li>
 

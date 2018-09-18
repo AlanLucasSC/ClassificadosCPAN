@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Solicitacao; 
-
+use App\Negocio; 
 class SolicitacoesController extends Controller
 {
     /**
@@ -14,10 +14,23 @@ class SolicitacoesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('solicitacao.index');
+       // error_log($id);
+        return view('solicitacao.index', compact('id'));
     }
+
+    public function minhas()
+    {
+        $solicitacoes = Solicitacao::where('solicitacoes.user_id', Auth::id())->get();
+        foreach($solicitacoes as $solicitacao){
+            $solicitacao->negocio = Negocio::where('id', '=', $solicitacao->negocios_id)->get();
+        }
+
+
+        return view('solicitacao.minhas', compact('solicitacoes'));
+    }
+    
 
   
     
@@ -39,7 +52,8 @@ class SolicitacoesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
+        
         $solicitacoes = new Solicitacao;
         if(!$request->quantidade){
             $error[] = 'Coloque seu nome para realizar um quantidade!';
@@ -50,14 +64,17 @@ class SolicitacoesController extends Controller
         if(isset($error)){
             return redirect()->back()->with('error', $error);
         }
+        
 
         $solicitacoes->quantidade = $request->quantidade;
         
         $solicitacoes->descricao = $request->desc;
         $solicitacoes->user_id = Auth::id();
-        $solicitacoes->email = Auth::user();
+        $help = Auth::user();
+        $solicitacoes->email = $help->email;
+        $solicitacoes->negocios_id = $request->id_negocio;
         $solicitacoes->save();
-
+        
         return redirect()->back()->with('message', 'Sucesso ao criar sua solicitação!');
     }
 
