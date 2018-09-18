@@ -30,5 +30,6 @@ Route::get('/pedidos/{id}/proposta', 'PropostaController@inserir');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/solicitacao/{id}','SolicitacoesController@index');
-Route::get('/minhas/solicitacao', 'SolicitacoesController@minhas');
+Route::get('/minhas/solicitacoes', 'SolicitacoesController@solicitacoes');
+Route::get('/minhas/recebidas', 'SolicitacoesController@recebidas');
 Route::get('/logout', 'Auth\LoginController@logout');

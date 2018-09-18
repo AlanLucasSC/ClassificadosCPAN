@@ -149,6 +149,12 @@
                                 <a class="link" href="{{ url('/negocios') }}">Negócios</a>
                             </div>
                             <div class="card-header border-bottom ">
+                                <a class="link" href="{{ url('/minhas/recebidas') }}">Solicitações Recebidas</a>
+                            </div>
+                            <div class="card-header border-bottom ">
+                                    <a class="link" href="{{ url('minhas/solicitacoes') }}">Minhas Solicitações</a>
+                            </div>
+                            <div class="card-header border-bottom ">
                                 <a class="link" href="{{ url('/pedidos') }}">Criar Pedido</a>
                             </div>
                             <div class="card-header border-bottom ">
@@ -156,9 +162,6 @@
                             </div>
                             <div class="card-header border-bottom ">
                                 <a class="link" href="{{ url('pedidos/meus/1') }}">Meus Pedidos</a>
-                            </div>
-                            <div class="card-header border-bottom ">
-                                <a class="link" href="{{ url('minhas/solicitacao') }}">Minhas Solicitações</a>
                             </div>
                         </div>
                         <div class="col-10 mt-5" id="content"> @yield('content') </div>

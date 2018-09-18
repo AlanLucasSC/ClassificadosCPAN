@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+<style>
+    #button{
+        cursor: pointer;
+        text-decoration: none;
+    }
+    a, a:hover{
+        color: white !important
+    }
+</style>
+
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -28,7 +38,12 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </span>
-                                <a class="" href="/solicitacao/{{$negocio->id}}">teste</span>
+                                @if($negocio->user_id != Auth::id())
+                                <span class="badge badge-primary badge-pill">
+                                        <a href="{{ url('/solicitacao/'.$negocio->id) }}" id="button"> Solicitar <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                                </span>
+                                @endif
+                                
                             </div>
                         </li>
 

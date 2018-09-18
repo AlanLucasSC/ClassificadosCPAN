@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Solicitacao; 
 use App\Negocio; 
+use App\User;
 class SolicitacoesController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class SolicitacoesController extends Controller
         return view('solicitacao.index', compact('id'));
     }
 
-    public function minhas()
+    public function solicitacoes()
     {
         $solicitacoes = Solicitacao::where('solicitacoes.user_id', Auth::id())->get();
         foreach($solicitacoes as $solicitacao){
@@ -29,6 +30,22 @@ class SolicitacoesController extends Controller
 
 
         return view('solicitacao.minhas', compact('solicitacoes'));
+    }
+
+    public function recebidas()
+    {   
+        $negocios= Negocio::where('user_id', '=', Auth::id())->get();
+        $users = User::all();
+        foreach($negocios as $negocio){
+            $negocio->solicitacao = Solicitacao::where('negocios_id', '=', $negocio->id)->get();
+            //$solicitacao->negocio = Negocio::where('id', '=', $solicitacao->negocios_id)->get();
+            foreach($negocio->solicitacao as $solicitacoes){
+                $solicitacoes->user = User::where('id', '=', $solicitacoes->user_id)->get();
+            }
+        }
+
+
+        return view('solicitacao.recebidas', compact('negocios'));
     }
     
 
