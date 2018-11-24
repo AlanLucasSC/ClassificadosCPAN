@@ -40,7 +40,7 @@
                                 </span>
                                 @if($negocio->user_id != Auth::id())
                                 <span class="badge badge-primary badge-pill">
-                                        <a href="{{ url('/solicitacao/'.$negocio->id) }}" id="button"> Solicitar <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                                        <a href="/solicitacao/{{$negocio->id}}" id="button"> Solicitar <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
                                 </span>
                                 @endif
                                 

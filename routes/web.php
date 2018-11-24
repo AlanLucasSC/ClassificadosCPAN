@@ -27,9 +27,12 @@ Route::resource('/solicitacoes','SolicitacoesController');
 Route::get('/pedidos/lista/{pag}','ListaPedidosController@index');
 Route::get('/pedidos/meus/{pag}', 'PedidoController@meus');
 Route::get('/pedidos/{id}/proposta', 'PropostaController@inserir');
+Route::post('/pedidos/{id}/proposta', 'PropostaController@store');
+Route::get('/propostas/recebidas', 'PropostaController@recebidas');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/solicitacao/{id}','SolicitacoesController@index');
+Route::post('/solicitacao/{id}','SolicitacoesController@store');
 Route::get('/minhas/solicitacoes', 'SolicitacoesController@solicitacoes');
 Route::get('/minhas/recebidas', 'SolicitacoesController@recebidas');
 Route::get('/logout', 'Auth\LoginController@logout');

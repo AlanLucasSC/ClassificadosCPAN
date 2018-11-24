@@ -16,7 +16,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <form method= "POST" action="{{ route('solicitacoes.store') }}" enctype="multipart/form-data">
+            <form method= "POST" action="/solicitacao/{{$id}}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="card">
                     <div class="card-header">
@@ -69,7 +69,7 @@
                                 <span class="badge badge-danger badge-pill">Não coloque textos muito grandes. É bastante cansativo</span>
                             </div>
                         </li>
-                    <input type="number" class="form-control" placeholder="{{$id}}" value="{{$id}}" name="id_negocio">
+                    <!--<input type="number" class="form-control" placeholder="{{$id}}" value="{{$id}}" name="id_negocio"> -->
                        
                         <li class="list-group-item">
                             <button type="submit" id="submit" class="btn btn-outline-success"> Salvar </button>

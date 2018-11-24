@@ -16,7 +16,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <form method= "POST" action="{{ route('pedidos.store') }}" enctype="multipart/form-data">
+            <form method= "POST" action="/pedidos/{{$id}}/proposta" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="card">
                     <div class="card-header">
